@@ -1,0 +1,30 @@
+{
+  "name": "imnicy/container",
+  "type": "library",
+  "description": "Container with PHP-DI",
+  "license": "MIT",
+  "homepage": "https://imnicy.com",
+  "authors": [
+    {
+      "name": "Imnicy Container",
+      "email": "support@imnicy.com"
+    }
+  ],
+  "require": {
+    "php": "^7.1.3",
+    "ext-json": "*",
+    "ext-mbstring": "*",
+    "imnicy/support": "^1.0",
+    "psr/container": "~1.0",
+    "php-di/php-di": "~6.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Nicy\\Container\\": ""
+    }
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "minimum-stability": "dev"
+}
