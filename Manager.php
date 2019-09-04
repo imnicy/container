@@ -72,7 +72,7 @@ final class Manager extends ManagerSupport
         $compile = $this->options['compile_path'] ?? '';
 
         if ($compile) {
-            $builder->enableCompilation($compile);
+            $builder->enableCompilation($compile, 'CompiledContainer', $class);
         }
 
         return $builder;
