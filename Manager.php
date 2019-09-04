@@ -3,15 +3,12 @@
 namespace Nicy\Container;
 
 use DI\ContainerBuilder;
-use Nicy\Container\Concerns\ServiceProviderTrait;
 use Nicy\Container\Contracts\Container;
 use Nicy\Container\Drivers\DiContainer;
 use Nicy\Support\Manager as ManagerSupport;
 
 final class Manager extends ManagerSupport
 {
-    use ServiceProviderTrait;
-
     /**
      * @var string
      */
