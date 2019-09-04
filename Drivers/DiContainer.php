@@ -8,9 +8,37 @@ use Nicy\Container\Contracts\Container as ContainerContracts;
 
 class DiContainer extends PsrContainer implements ContainerContracts
 {
+    /**
+     * The service binding methods that have been executed.
+     *
+     * @var array
+     */
+    protected $ranServiceBinders = [];
+
     public function singleton($name, $value)
     {
         $this->set($name, $value);
+    }
+
+    public function get($name)
+    {
+        if (! $this->has($name) &&
+            array_key_exists($name, $this->availableBindings) &&
+            ! array_key_exists($name, $this->ranServiceBinders)) {
+
+            if (is_callable($callable = $this->availableBindings[$name])) {
+                $this->call($callable);
+            }
+
+            $this->ranServiceBinders[$name] = true;
+        }
+
+        return parent::get($name);
+    }
+
+    public function withBindings(array $bindings = [])
+    {
+        $this->availableBindings = $bindings;
     }
 
     /**
@@ -82,4 +110,11 @@ class DiContainer extends PsrContainer implements ContainerContracts
     {
         $this[$key] = $value;
     }
+
+    /**
+     * The available container bindings and their respective load methods.
+     *
+     * @var array
+     */
+    public $availableBindings = [];
 }

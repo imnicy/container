@@ -18,4 +18,6 @@ interface Container extends ArrayAccess, ContainerInterface
     public function has($name);
 
     public function call($callable, array $parameters = []);
+
+    public function withBindings(array $bindings = []);
 }
