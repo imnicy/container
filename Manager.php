@@ -67,14 +67,6 @@ final class Manager extends ManagerSupport
      */
     protected function createPHPDiContainerBuilder()
     {
-        $builder = new ContainerBuilder($class = DiContainer::class);
-
-        $compile = $this->options['compile_path'] ?? '';
-
-        if ($compile) {
-            $builder->enableCompilation($compile, 'CompiledContainer', $class);
-        }
-
-        return $builder;
+        return new ContainerBuilder($class = DiContainer::class);
     }
 }
