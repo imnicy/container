@@ -7,7 +7,7 @@ use Psr\Container\ContainerInterface;
 
 interface Container extends ArrayAccess, ContainerInterface
 {
-    public function singleton($name, $value);
+    public function singleton(string $name, $value = null);
 
     public function get($name);
 

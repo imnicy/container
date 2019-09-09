@@ -8,9 +8,34 @@ use Nicy\Container\Contracts\Container as ContainerContracts;
 
 class DiContainer extends PsrContainer implements ContainerContracts
 {
-    public function singleton($name, $value)
+    /**
+     * Define an object or a value in the container.
+     *
+     * @param string $name Entry name
+     * @param mixed|null $value Value, use definition helpers to define objects
+     */
+    public function singleton(string $name, $value = null)
     {
+        if (is_null($value)) {
+            $value = $name;
+        }
+
         $this->set($name, $value);
+    }
+
+    /**
+     * Define an object or a value in the container.
+     *
+     * @param string $name Entry name
+     * @param mixed $value Value, use definition helpers to define objects
+     */
+    public function set(string $name, $value)
+    {
+        if (is_string($value) && class_exists($value)) {
+            $value = $this->make($value);
+        }
+
+        parent::set($name, $value);
     }
 
     /**
