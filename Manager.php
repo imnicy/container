@@ -3,6 +3,7 @@
 namespace Nicy\Container;
 
 use DI\ContainerBuilder;
+use DI\Container as PsrContainer;
 use Nicy\Container\Contracts\Container;
 use Nicy\Container\Drivers\DiContainer;
 use Nicy\Support\Manager as ManagerSupport;
@@ -48,7 +49,7 @@ final class Manager extends ManagerSupport
     /**
      * Builder the DiContainer driver
      *
-     * @return DIContainer
+     * @return PsrContainer
      */
     protected function createPHPDiDriver()
     {
