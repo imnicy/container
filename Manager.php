@@ -20,7 +20,13 @@ final class Manager extends ManagerSupport
      */
     protected $options;
 
-    public function __construct($default = 'php-di', array $options = [])
+    /**
+     * Manager constructor.
+     *
+     * @param string $default
+     * @param array $options
+     */
+    public function __construct($default='php-di', $options=[])
     {
         $this->default = $default;
         $this->options = $options;
@@ -68,6 +74,6 @@ final class Manager extends ManagerSupport
      */
     protected function createPHPDiContainerBuilder()
     {
-        return new ContainerBuilder($class = DiContainer::class);
+        return new ContainerBuilder(DiContainer::class);
     }
 }

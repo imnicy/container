@@ -14,7 +14,7 @@ class DiContainer extends PsrContainer implements ContainerContracts
      * @param string $name Entry name
      * @param mixed|null $value Value, use definition helpers to define objects
      */
-    public function singleton(string $name, $value = null)
+    public function singleton($name, $value=null)
     {
         if (is_null($value)) {
             $value = $name;
@@ -29,7 +29,7 @@ class DiContainer extends PsrContainer implements ContainerContracts
      * @param string $name Entry name
      * @param mixed $value Value, use definition helpers to define objects
      */
-    public function set(string $name, $value)
+    public function set($name, $value)
     {
         if (is_string($value) && class_exists($value)) {
             $value = $this->make($value);

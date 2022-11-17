@@ -7,15 +7,15 @@ use Psr\Container\ContainerInterface;
 
 interface Container extends ArrayAccess, ContainerInterface
 {
-    public function singleton(string $name, $value = null);
+    public function singleton($name, $value=null);
 
     public function get($name);
 
-    public function make($name, array $parameters = []);
+    public function make($name, $parameters=[]);
 
-    public function set(string $name, $value);
+    public function set($name, $value);
 
     public function has($name);
 
-    public function call($callable, array $parameters = []);
+    public function call($callable, $parameters=[]);
 }
